@@ -1,0 +1,68 @@
+[
+    {
+        "login_time": "2025-12-21 11:39:54",
+        "logout_time": "2025-12-21 11:40:15",
+        "session_duration": "0:00:20",
+        "total_tasks_attempted": 5,
+        "activity_log": [
+            {
+                "command": "SOLVE_20_CALCULUS_PROBLEMS_CH3",
+                "decision": "APPROVE",
+                "timestamp": "2025-12-21 11:39:59"
+            },
+            {
+                "command": "45_MINUTES_UNINTERRUPTED_STUDY",
+                "decision": "REJECT",
+                "timestamp": "2025-12-21 11:40:03"
+            },
+            {
+                "command": "30_PUSH_UPS_AND_30_SQUATS",
+                "decision": "COMPLETE",
+                "timestamp": "2025-12-21 11:40:08"
+            },
+            {
+                "command": "WAKE_UP_BY_6_00_AM",
+                "decision": "APPROVE",
+                "timestamp": "2025-12-21 11:40:11"
+            },
+            {
+                "command": "REVISE_YESTERDAY_NOTES",
+                "decision": "REJECT",
+                "timestamp": "2025-12-21 11:40:15"
+            }
+        ]
+    },
+    {
+        "login_time": "2025-12-21 11:40:26",
+        "logout_time": "2025-12-21 11:40:46",
+        "session_duration": "0:00:19",
+        "total_tasks_attempted": 5,
+        "activity_log": [
+            {
+                "command": "SOLVE_20_CALCULUS_PROBLEMS_CH3",
+                "decision": "APPROVE",
+                "timestamp": "2025-12-21 11:40:30"
+            },
+            {
+                "command": "45_MINUTES_UNINTERRUPTED_STUDY",
+                "decision": "REJECT",
+                "timestamp": "2025-12-21 11:40:36"
+            },
+            {
+                "command": "30_PUSH_UPS_AND_30_SQUATS",
+                "decision": "COMPLETE",
+                "timestamp": "2025-12-21 11:40:39"
+            },
+            {
+                "command": "WAKE_UP_BY_6_00_AM",
+                "decision": "APPROVE",
+                "timestamp": "2025-12-21 11:40:43"
+            },
+            {
+                "command": "REVISE_YESTERDAY_NOTES",
+                "decision": "REJECT",
+                "timestamp": "2025-12-21 11:40:46"
+            }
+        ]
+    }
+]

@@ -1,0 +1,9 @@
+# AuthTrail Dependencies
+
+# 1. The builder (turns code into an executable)
+pyinstaller
+
+# 2. Hardware Requirements
+# - CPU: Anything faster than a hamster on a wheel.
+# - RAM: Enough to hold a single thought.
+# - OS: Windows, Mac, Linux (Do not attempt to run on a raw Potato).

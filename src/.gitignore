@@ -1,0 +1,16 @@
+# Ignore build folders
+build/
+dist/
+*.spec
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore logs (optional, but usually you don't commit your personal logs)
+logs/
+*.log
+*.json
+
+# Ignore IDE settings (VS Code)
+.vscode/
