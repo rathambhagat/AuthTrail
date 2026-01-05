@@ -1,0 +1,1 @@
+If we intent to change the code we need to update the exe file by opening the authtrail file in terminal and putting the code: pyinstaller --onefile --name AuthTrail src/authtrail.py this will update and overwrite the old exe 
