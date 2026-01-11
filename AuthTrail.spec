@@ -5,7 +5,7 @@ a = Analysis(
     ['src\\authtrail.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('src', 'src')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

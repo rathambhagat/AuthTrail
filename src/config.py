@@ -1,37 +1,33 @@
-# Configuration File for AuthTrail - Discipline Edition
+# LIST OF VALID INPUTS
+# The user must type one of these to proceed.
+VALID_ACTIONS = ['approve', 'reject']
 
+# THE DISCIPLINE TASKS
+# You can add more tasks here by copying the format { ... },
 SCENARIOS = [
-    # Scenario 0: Study Discipline
     {
-        "command": "SOLVE_20_CALCULUS_PROBLEMS_CH3",
-        "constraint": "Complete within 90 mins; NO solution manuals allowed.",
-        "proof": "Written solutions photographed/uploaded clearly."
+        "command": "SOLVE_20_CALCULUS_PROBLEMS",
+        "constraint": "Must achieve 90% accuracy without calculator.",
+        "proof": "Upload photo of solved pages to group."
     },
-    # Scenario 1: Focus Control
     {
-        "command": "45_MINUTES_UNINTERRUPTED_STUDY",
-        "constraint": "Zero phone usage or app switching.",
-        "proof": "Timer completion and self-report confirmation."
+        "command": "DEEP_FOCUS_SESSION_45MIN",
+        "constraint": "Phone must be in another room. No music with lyrics.",
+        "proof": "Time-lapse video or screen recording."
     },
-    # Scenario 2: Physical Discipline
     {
-        "command": "30_PUSH_UPS_AND_30_SQUATS",
-        "constraint": "One continuous session with correct form.",
-        "proof": "Self-verification or short completion note."
+        "command": "PHYSICAL_DISCIPLINE_SET",
+        "constraint": "50 Pushups + 50 Squats. No long breaks.",
+        "proof": "Video evidence or gym partner verification."
     },
-    # Scenario 3: Habit Building
     {
         "command": "WAKE_UP_BY_6_00_AM",
-        "constraint": "Alarm must be silenced within 120 seconds.",
-        "proof": "Timestamped confirmation entry."
+        "constraint": "Must be out of bed immediately. No snoozing.",
+        "proof": "Send 'Good Morning' message to accountability group."
     },
-    # Scenario 4: Revision & Recall
     {
-        "command": "REVISE_YESTERDAY_NOTES",
-        "constraint": "25 minutes; No new material allowed.",
-        "proof": "Key points written entirely from memory."
+        "command": "REVISION_MEMORY_RECALL",
+        "constraint": "Write down yesterday's topics from memory.",
+        "proof": "Photo of the recall sheet."
     }
 ]
-
-# Allowed actions
-VALID_ACTIONS = ["approve", "reject", "complete"]

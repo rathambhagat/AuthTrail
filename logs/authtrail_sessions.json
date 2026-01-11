@@ -31,5 +31,71 @@
                 "timestamp": "2025-12-21 11:38:17"
             }
         ]
+    },
+    {
+        "login_time": "2026-01-11 12:15:56",
+        "logout_time": "2026-01-11 12:16:16",
+        "session_duration": "0:00:19",
+        "total_tasks_attempted": 5,
+        "activity_log": [
+            {
+                "command": "SOLVE_20_CALCULUS_PROBLEMS",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:16:01"
+            },
+            {
+                "command": "DEEP_FOCUS_SESSION_45MIN",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:16:05"
+            },
+            {
+                "command": "PHYSICAL_DISCIPLINE_SET",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:16:09"
+            },
+            {
+                "command": "WAKE_UP_BY_6_00_AM",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:16:13"
+            },
+            {
+                "command": "REVISION_MEMORY_RECALL",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:16:16"
+            }
+        ]
+    },
+    {
+        "login_time": "2026-01-11 12:24:37",
+        "logout_time": "2026-01-11 12:24:53",
+        "session_duration": "0:00:15",
+        "total_tasks_attempted": 5,
+        "activity_log": [
+            {
+                "command": "SOLVE_20_CALCULUS_PROBLEMS",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:24:41"
+            },
+            {
+                "command": "DEEP_FOCUS_SESSION_45MIN",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:24:46"
+            },
+            {
+                "command": "PHYSICAL_DISCIPLINE_SET",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:24:48"
+            },
+            {
+                "command": "WAKE_UP_BY_6_00_AM",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:24:51"
+            },
+            {
+                "command": "REVISION_MEMORY_RECALL",
+                "decision": "APPROVE",
+                "timestamp": "2026-01-11 12:24:53"
+            }
+        ]
     }
 ]

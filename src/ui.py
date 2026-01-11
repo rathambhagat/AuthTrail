@@ -1,146 +1,79 @@
 import os
-import shutil
+import time
 
-# =========================
-# ANSI COLOR DEFINITIONS
-# =========================
-RESET = "\033[0m"
-BOLD = "\033[1m"
-DIM = "\033[2m"
-INVERT = "\033[7m"
-
+# --- NEON COLORS ---
+HEADER = "\033[95m"   # Magenta
+BLUE = "\033[94m"
 CYAN = "\033[96m"
 GREEN = "\033[92m"
-YELLOW = "\033[93m"
-RED = "\033[91m"
-MAGENTA = "\033[95m"
-WHITE = "\033[97m"
+WARNING = "\033[93m"  # Yellow
+RESET = "\033[0m"
 
-
-# =========================
-# TERMINAL HELPERS
-# =========================
-def clear():
-    """Clear terminal screen"""
-    os.system("cls" if os.name == "nt" else "clear")
-
-
-def term_width(default=80):
-    """Get terminal width safely"""
-    return shutil.get_terminal_size((default, 20)).columns
-
-
-def center(text):
-    """Center text based on terminal width"""
-    return text.center(term_width())
-
-
-# =========================
-# UI COMPONENTS
-# =========================
-def divider(char="─", color=DIM):
-    """Horizontal divider"""
-    print(color + char * term_width() + RESET)
-
-
-def header(title, subtitle=None):
+def display_task_card(index, total, proposal):
     """
-    Draw a cyber-style header
+    Displays a single task in a futuristic card format.
     """
-    clear()
-    print(CYAN + center(f" {title} ") + RESET)
-    divider()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    # Visual Progress Bar
+    progress_filled = "█" * (index + 1)
+    progress_empty = "-" * (total - (index + 1))
+    
+    print(f"{HEADER}┌──────────────────────────────────────────────────┐{RESET}")
+    print(f"{HEADER}│  MISSION PROGRESS: [{GREEN}{progress_filled}{progress_empty}{HEADER}] {index+1}/{total}     │{RESET}")
+    print(f"{HEADER}└──────────────────────────────────────────────────┘{RESET}")
+    print("")
+    
+    # Task Details
+    print(f"{CYAN}:: OBJECTIVE ID :: {RESET} {proposal['command']}")
+    print(f"{WARNING}:: CONSTRAINTS  :: {RESET} {proposal['constraint']}")
+    print(f"{BLUE}:: VERIFICATION :: {RESET} {proposal['proof']}")
+    print(f"\n{HEADER}────────────────────────────────────────────────────{RESET}")
 
-    if subtitle:
-        print(DIM + center(subtitle) + RESET)
-        print()
-
-
-def footer(text="READY | AuthTrail CLI"):
+def get_user_decision(valid_actions):
     """
-    Draw footer status bar
+    Loops until the user enters a valid command (approve/reject).
     """
-    print()
-    divider()
-    print(DIM + center(text) + RESET)
+    while True:
+        user_input = input(f"{GREEN}>> AUTHORIZE? ({'/'.join(valid_actions)}): {RESET}").strip().lower()
+        
+        if user_input in valid_actions:
+            return user_input
+            
+        print(f"{WARNING}>> ACCESS DENIED. INVALID INPUT.{RESET}")
 
-
-def boxed(text_lines, title=None, color=CYAN):
+def show_session_summary(duration, tasks_count):
     """
-    Draw a boxed panel with optional title
+    Displays the end-of-session stats.
     """
-    width = max(len(line) for line in text_lines) + 6
-    top = "┌" + "─" * (width - 2) + "┐"
-    bottom = "└" + "─" * (width - 2) + "┘"
+    print(f"\n{GREEN}>> SESSION COMPLETE.{RESET}")
+    print(f"   DURATION:     {duration}")
+    print(f"   TASKS LOGGED: {tasks_count}")
+    print(f"{CYAN}>> DATA ENCRYPTED AND SAVED TO DRIVE.{RESET}")
+    input(f"\n{HEADER}[PRESS ENTER TO RETURN]{RESET}")
 
-    print(color + center(top) + RESET)
-
-    if title:
-        title_line = f" {title} "
-        print(color + center(f"│{title_line.center(width - 2)}│") + RESET)
-
-    for line in text_lines:
-        print(color + center(f"│  {line.ljust(width - 6)}  │") + RESET)
-
-    print(color + center(bottom) + RESET)
-
-
-def menu_option(text, selected=False):
+def show_logs(logs):
     """
-    Render a menu option with highlight
+    Formats and prints the JSON history log.
     """
-    if selected:
-        return INVERT + f" ▶ {text} ".ljust(60) + RESET
-    return f"   {text}"
-
-
-def message(text, level="info"):
-    """
-    Styled messages
-    """
-    if level == "info":
-        print(CYAN + text + RESET)
-    elif level == "success":
-        print(GREEN + text + RESET)
-    elif level == "warning":
-        print(YELLOW + text + RESET)
-    elif level == "error":
-        print(RED + text + RESET)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(f"{CYAN}>> ACCESSING ARCHIVES...{RESET}\n")
+    
+    if not logs:
+        print(f"{WARNING}>> NO RECORDS FOUND.{RESET}")
     else:
-        print(text)
-
-
-def prompt(text="Press Enter to continue..."):
-    """
-    Standard pause prompt
-    """
-    input(DIM + text + RESET)
-
-
-# =========================
-# BRAND ELEMENTS
-# =========================
-def brand_tagline():
-    print(DIM + center("Secure Authentication Trail System") + RESET)
-
-
-def version_bar(version="v1.0"):
-    print(DIM + center(f"AuthTrail {version} | CLI MODE") + RESET)
-
-
-# =========================
-# STANDALONE PREVIEW
-# =========================
-if __name__ == "__main__":
-    header("AUTHTRAIL", "Cyber Audit Interface")
-    boxed(
-        [
-            "View Authentication Logs",
-            "Search User Trails",
-            "Export Audit Report",
-            "Configuration",
-            "Exit"
-        ],
-        title="MAIN MENU"
-    )
-    footer("READY | Awaiting Input")
+        # Loop reversed so newest sessions appear first
+        for i, session in enumerate(reversed(logs)):
+            print(f"{HEADER}╔══ SESSION RECORD {len(logs)-i} ═════════════════════════{RESET}")
+            print(f"║ DATE: {session.get('login_time', 'N/A')}")
+            print(f"║ DURATION: {session.get('session_duration', 'N/A')}")
+            print(f"{HEADER}╟────────────────────────────────────────────────{RESET}")
+            
+            for action in session.get('activity_log', []):
+                # Color code: Green for Approve, Yellow for Reject
+                decision_color = GREEN if action['decision'] == 'APPROVE' else WARNING
+                print(f"║ [{decision_color}{action['decision']}{RESET}] {action['command']}")
+            
+            print(f"{HEADER}╚════════════════════════════════════════════════{RESET}\n")
+    
+    input(f"{HEADER}[PRESS ENTER TO EXIT]{RESET}")
